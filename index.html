@@ -10,6 +10,7 @@
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="index.css" rel="stylesheet" type="text/css"/>
   </head>
   <body onload="fetchRecords()">
     <div class="container">
@@ -18,11 +19,15 @@
         <h3>Add a PR (weight and rep max):</h3>
         <form id="recordInputForm">
           <div class="form-group">
-            <label for="recordInput">Weight (in kg)</label>
+            <label for="recordInput">How much did you lift?</label>
             <input type="text" class="form-control" id="weightInput" placeholder="Weight (in kg)">
           </div>
           <div class="form-group">
-            <label for="recordInput">Reps</label>
+            <label for="daysAgo">Enter the number of days it's been since this PR</label>
+            <input type="text" class="form-control" id="daysAgo" placeholder="Number of days ago">
+          </div>
+          <div class="form-group">
+            <label for="recordInput">How many reps did you bust out?</label>
              <select class="form-control" id="repInput">
               <option value="1">1</option>
               <option value="2">2</option>
@@ -38,7 +43,14 @@
           </div>
           <button type="submit" class="btn btn-primary">Add</button>
         </form>
+
+        <form id="calculatePerformanceForm">
+          <button type="submit" class="btn btn-primary" style="background-color:orange;border:none">Calculate Performance Curve</button>
+        </form>
       </div>
+
+      <div class="chart"></div>
+
       <div class="row">
         <div class="col-lg-12">
           <div id="recordsList">
@@ -50,6 +62,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="http://chancejs.com/chance.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.0.3/math.min.js"></script>
-    <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
