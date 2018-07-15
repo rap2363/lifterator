@@ -20,7 +20,7 @@ function createChart(weights) {
 
   var data = [];
   for (var r = 1; r <= 10; r++) {
-    data.push(oneRepMax * math.exp(-alpha * (r - 1)));
+    data.push(oneRepMax * math.exp(-alpha * (r - 1)) | 0);
   }
 
   d3.select(".chart")
