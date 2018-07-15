@@ -2,6 +2,19 @@
   document.getElementById('recordInputForm').addEventListener('submit', saveRecord);
   document.getElementById('calculatePerformanceForm').addEventListener('submit', calculatePerformanceCurve);
 })();
+const RED_GREEN_GRADIENT = [
+  '#FF3300',
+  '#E53D00',
+  '#CC4700',
+  '#B25100',
+  '#995B00',
+  '#7F6600',
+  '#667000',
+  '#4C7A00',
+  '#338400',
+  '#198E00',
+  '#009900'
+]
 
 function calculatePerformanceCurve(e) {
   var weights = calculateOptimalWeights();
@@ -16,20 +29,27 @@ function calculatePerformanceCurve(e) {
 
 function createChart(weights) {
   var oneRepMax = weights.w0;
+  var tenRepMax = oneRepMax * math.exp(-alpha * 9) | 0;
   var alpha = weights.alpha;
+  var minimumWidth = 250;
 
   var data = [];
-  for (var r = 1; r <= 10; r++) {
-    data.push(oneRepMax * math.exp(-alpha * (r - 1)) | 0);
+  for (var r = 0; r < 10; r++) {
+    data.push({
+      "weight": oneRepMax * math.exp(-alpha * r) | 0,
+      "backgroundColor": RED_GREEN_GRADIENT[r],
+    });
   }
 
   d3.select(".chart")
+    .append("h1").text("Predicted Rep Maxes (1 - 10)")
     .selectAll("div")
     .data(data)
       .enter()
       .append("div")
-      .style("width", function(d) { return d + "px"; })
-      .text(function(d) { return d; });
+      .style("width", function(d) { return (minimumWidth + 10 * (d.weight - tenRepMax)) + "px"; })
+      .style('background-color', function (d) { return d.backgroundColor; })
+      .text(function(d) { return d.weight; });
 }
 
 function saveRecord(e) {
