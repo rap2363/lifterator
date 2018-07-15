@@ -9,6 +9,7 @@
   "author": "rap2363",
   "license": "ISC",
   "devDependencies": {
-    "live-server": "^1.2.0"
+    "live-server": "^1.2.0",
+    "mathjs": "^5.0.2"
   }
 }

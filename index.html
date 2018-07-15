@@ -11,18 +11,18 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   </head>
-  <body onload="fetchIssues()">
+  <body onload="fetchRecords()">
     <div class="container">
       <h1>Lifterator!</h1>
       <div class="jumbotron">
         <h3>Add a PR (weight and rep max):</h3>
-        <form id="issueInputForm">
+        <form id="recordInputForm">
           <div class="form-group">
-            <label for="prInput">Weight (in kg)</label>
+            <label for="recordInput">Weight (in kg)</label>
             <input type="text" class="form-control" id="weightInput" placeholder="Weight (in kg)">
           </div>
           <div class="form-group">
-            <label for="prInput">Reps</label>
+            <label for="recordInput">Reps</label>
              <select class="form-control" id="repInput">
               <option value="1">1</option>
               <option value="2">2</option>
@@ -41,7 +41,7 @@
       </div>
       <div class="row">
         <div class="col-lg-12">
-          <div id="prList">
+          <div id="recordsList">
           </div>
         </div>
       </div>
@@ -49,6 +49,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="http://chancejs.com/chance.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.0.3/math.min.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
